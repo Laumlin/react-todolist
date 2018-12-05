@@ -12,17 +12,18 @@ class TodoList extends Component {
   }
 
   render() {
+    const { inputValue, list } = this.state
     return (
       <Fragment>
         <div>
           <input 
           type="text"
-          value={this.state.inputValue}
+          value={inputValue}
           onChange={this.handleInputChange} />
           <button onClick={this.handleAddItem}>添加</button>
         </div>
         <ul>
-          {this.state.list.map((item, index) => (<li key={index}>{item}</li>))}
+          {list.map((item, index) => (<li key={index}>{item}</li>))}
         </ul>
       </Fragment>
     )

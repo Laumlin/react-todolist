@@ -1,14 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
+import store from './store'
 
 class TodoList extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      inputValue: '',
-      list: []
-    }
+    this.state = store.getState()
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleAddItem = this.handleAddItem.bind(this)
     this.handleDelItem = this.handleDelItem.bind(this)

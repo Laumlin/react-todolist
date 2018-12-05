@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
-import TodoItem from './TodoItem'
 
 class TodoList extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ class TodoList extends Component {
           style={{marginLeft: 10, marginTop: 10, width: 300}}
           bordered
           dataSource={list}
-          renderItem={(item, index) => (<List.Item>{item}</List.Item>)}>
+          renderItem={(item, index) => (<List.Item onClick={() => this.handleDelItem(index)}>{item}</List.Item>)}>
         </List>
       </Fragment>
     )

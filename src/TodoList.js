@@ -45,12 +45,10 @@ class TodoList extends Component {
   }
 
   handleAddItem() {
-    this.setState((prevState) => {
-      const newState = prevState
-      const inputValue = newState.inputValue
-      newState.list.push(inputValue)
-      return {newState}
-    })
+    const action = {
+      type: 'add_todo_item'
+    }
+    store.dispatch(action)
   }
 
   handleDelItem(index) {

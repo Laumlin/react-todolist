@@ -9,5 +9,11 @@ export default (state=defaultState, action) => {
     newState.inputValue = action.inputValue
     return newState
   }
+  if (action.type === 'add_todo_item') {
+    const newState = JSON.parse(JSON.stringify(state))
+    const inputValue = newState.inputValue
+    newState.list.push(inputValue)
+    return newState
+  }
   return state
 }

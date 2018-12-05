@@ -14,6 +14,7 @@ export default (state=defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state))
     const inputValue = newState.inputValue
     newState.list.push(inputValue)
+    newState.inputValue = ''
     return newState
   }
   if (action.type === DEL_TODO_ITEM) {

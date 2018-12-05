@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DEL_TODO_ITEM } from './store/actionTypes'
+import { getChangeInputAction, getAddItemAction, getDelItemAction } from './store/actionCreator'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
 import store from './store'
@@ -38,25 +38,17 @@ class TodoList extends Component {
   }
 
   handleInputChange(e) {
-    const action = {
-      type: CHANGE_INPUT_VALUE,
-      inputValue: e.target.value
-    }
+    const action = getChangeInputAction(e.target.value)
     store.dispatch(action)
   }
 
   handleAddItem() {
-    const action = {
-      type: ADD_TODO_ITEM
-    }
+    const action = getAddItemAction()
     store.dispatch(action)
   }
 
   handleDelItem(index) {
-    const action = {
-      type: DEL_TODO_ITEM,
-      index
-    }
+    const action = getDelItemAction(index)
     store.dispatch(action)
   }
 

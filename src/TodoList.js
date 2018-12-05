@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import 'antd/dist/antd.css'
-import { Input, Button } from 'antd'
+import { Input, Button, List } from 'antd'
 import TodoItem from './TodoItem'
 
 class TodoList extends Component {
@@ -27,9 +27,12 @@ class TodoList extends Component {
           onChange={this.handleInputChange} />
           <Button type="primary" onClick={this.handleAddItem}>添加</Button>
         </div>
-        <ul>
-          {list.map((item, index) => (<TodoItem key={index} index={index} item={item} handleDelItem={this.handleDelItem}/>))}
-        </ul>
+        <List
+          style={{marginLeft: 10, marginTop: 10, width: 300}}
+          bordered
+          dataSource={list}
+          renderItem={(item, index) => (<List.Item>{item}</List.Item>)}>
+        </List>
       </Fragment>
     )
   }

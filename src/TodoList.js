@@ -11,7 +11,7 @@ class TodoList extends Component {
     this.handleDelItem = this.handleDelItem.bind(this)
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.state = store.getState()
-
+    store.subscribe(this.handleStoreChange)
   }
 
   render() {
@@ -61,6 +61,9 @@ class TodoList extends Component {
     })
   }
 
+  handleStoreChange() {
+    this.setState(store.getState())
+  }
 }
 
 export default TodoList

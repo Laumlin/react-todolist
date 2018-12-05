@@ -10,6 +10,7 @@ class TodoList extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleAddItem = this.handleAddItem.bind(this)
+    this.handleDelItem = this.handleDelItem.bind(this)
   }
 
   render() {
@@ -24,7 +25,7 @@ class TodoList extends Component {
           <button onClick={this.handleAddItem}>添加</button>
         </div>
         <ul>
-          {list.map((item, index) => (<TodoItem key={index} index={index} item={item} />))}
+          {list.map((item, index) => (<TodoItem key={index} index={index} item={item} handleDelItem={this.handleDelItem}/>))}
         </ul>
       </Fragment>
     )
@@ -42,6 +43,14 @@ class TodoList extends Component {
       const newState = prevState
       const inputValue = newState.inputValue
       newState.list.push(inputValue)
+      return {newState}
+    })
+  }
+
+  handleDelItem(index) {
+    this.setState((prevState) => {
+      const newState = prevState
+      newState.list.splice(index, 1)
       return {newState}
     })
   }

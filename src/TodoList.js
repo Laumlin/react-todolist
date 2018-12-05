@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react'
+import 'antd/dist/antd.css'
+import { Input } from 'antd'
 import TodoItem from './TodoItem'
 
 class TodoList extends Component {
@@ -18,7 +20,8 @@ class TodoList extends Component {
     return (
       <Fragment>
         <div>
-          <input 
+          <Input 
+          style={{marginTop: 10, marginLeft: 10, width: 300}}
           type="text"
           value={inputValue}
           onChange={this.handleInputChange} />

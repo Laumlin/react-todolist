@@ -52,11 +52,11 @@ class TodoList extends Component {
   }
 
   handleDelItem(index) {
-    this.setState((prevState) => {
-      const newState = prevState
-      newState.list.splice(index, 1)
-      return {newState}
-    })
+    const action = {
+      type: 'del_todo_item',
+      index
+    }
+    store.dispatch(action)
   }
 
   handleStoreChange() {

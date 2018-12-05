@@ -6,10 +6,12 @@ import store from './store'
 class TodoList extends Component {
   constructor(props) {
     super(props)
-    this.state = store.getState()
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleAddItem = this.handleAddItem.bind(this)
     this.handleDelItem = this.handleDelItem.bind(this)
+    this.handleStoreChange = this.handleStoreChange.bind(this)
+    this.state = store.getState()
+
   }
 
   render() {
@@ -35,10 +37,11 @@ class TodoList extends Component {
   }
 
   handleInputChange(e) {
-    const inputValue = e.target.value
-    this.setState(() => {
-      return {inputValue}
-    })
+    const action = {
+      type: 'change_input_value',
+      inputValue: e.target.value
+    }
+    store.dispatch(action)
   }
 
   handleAddItem() {
@@ -57,6 +60,7 @@ class TodoList extends Component {
       return {newState}
     })
   }
+
 }
 
 export default TodoList

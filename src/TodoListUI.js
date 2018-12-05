@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { Input, Button, List } from 'antd'
 
 // 无状态组件，只有props属性，一般只用来显示视图，性能好

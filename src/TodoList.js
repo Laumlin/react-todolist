@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getChangeInputAction, getAddItemAction, getDelItemAction, getTodoList } from './store/actionCreator'
+import { getChangeInputAction, getAddItemAction, getDelItemAction, getInitListAction } from './store/actionCreator'
 import 'antd/dist/antd.css'
 import store from './store'
 import TodoListUI from './TodoListUI'
@@ -18,16 +18,16 @@ class TodoList extends Component {
   render() {
     const { inputValue, list } = this.state
     return <TodoListUI 
-              inputValue={inputValue}
-              list={list}
-              handleInputChange={this.handleInputChange}
-              handleAddItem={this.handleAddItem}
-              handleDelItem={this.handleDelItem} 
-            />
+      inputValue={inputValue}
+      list={list}
+      handleInputChange={this.handleInputChange}
+      handleAddItem={this.handleAddItem}
+      handleDelItem={this.handleDelItem} 
+    />
   }
 
   componentDidMount() {
-    const action = getTodoList()
+    const action = getInitListAction()
     store.dispatch(action)
   }
 
